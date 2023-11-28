@@ -29,7 +29,7 @@ public class PatternPrinter {
             }
 
             // printing the pattern
-            switch (row){
+            switch (choice){
                 case 1:
                     printPattern1(row);
                     break;
@@ -59,7 +59,12 @@ public class PatternPrinter {
     }
 
     public static void printPattern1(int row){
-        System.out.println("printing 1");
+        for (int i=row; i>0; i--){
+            for (int j=0; j<i; j++){
+                System.out.print(i-j+(row-i));
+            }
+            System.out.println();
+        }
     }
 
     public static void printPattern2(int row){
@@ -71,6 +76,7 @@ public class PatternPrinter {
     }
 
     public static void printPattern4(int row){
+        // TODO: check even or odd
         System.out.println("printing 4");
     }
 }
