@@ -29,7 +29,7 @@ public class CashierCalculator {
             itemPrices[i] = itmPrice;
         }
 
-        // getting the GST
+        // getting the GST rate
         double gstRate = -1;
         while (!(gstRate>=0 && gstRate<=14)){
             invalidInputs++;
@@ -39,9 +39,9 @@ public class CashierCalculator {
         invalidInputs--;
         gstRate /= 100; // get percentage of gstRate
 
-        // getting the QST
+        // getting the QST rate
         double qstRate = -1;
-        while (!(qstRate>=0 && qstRate<=14)){
+        while (!(qstRate>=0 && qstRate<=17)){
             invalidInputs++;
             System.out.printf("Please enter the tax rate of QST in %% [%d...%d]", 0, 17);
             qstRate = kb.nextDouble();
@@ -63,7 +63,7 @@ public class CashierCalculator {
         System.out.printf("%10s: $ %10.2f\n", "Total", total);
     }
 
-    /** Given a doubles array of the prices of all items
+    /** Given a doubles array of the prices of all items,
      *  calculates the subtotal before taxes and returns the subtotal as a double*/
     public static double calculateSubtotal(double[] itmPrices){
         double subtotal = 0;
