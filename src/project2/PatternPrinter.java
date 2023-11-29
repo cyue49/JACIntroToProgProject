@@ -94,6 +94,9 @@ public class PatternPrinter {
     public static void printPattern4(int row){
         for (int i=1; i<row+1; i++){
             if (i%2 == 0)   continue;
+            for (int j=row; j>i; j-=2){
+                System.out.print(" ");
+            }
             for (int j=0; j<i; j++){
                 System.out.print(j+1);
             }
@@ -102,6 +105,9 @@ public class PatternPrinter {
         if (row%2 == 0){ // even number of rows
             for (int i=row; i>0; i--){
                 if (i%2 == 0)   continue;
+                for (int j=row; j>i; j-=2){
+                    System.out.print(" ");
+                }
                 for (int j=0; j<i; j++){
                     System.out.print(j+1);
                 }
@@ -110,6 +116,9 @@ public class PatternPrinter {
         }else{ // odd number of rows
             for (int i=row-2; i>0; i--){
                 if (i%2 == 0)   continue;
+                for (int j=row; j>i; j-=2){
+                    System.out.print(" ");
+                }
                 for (int j=0; j<i; j++){
                     System.out.print(j+1);
                 }
