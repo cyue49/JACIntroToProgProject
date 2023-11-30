@@ -10,13 +10,22 @@ public class PatternPrinter {
         System.out.println();
 
         int choice = 0;
+        int row = 0;
         while (true){ // loop program until user wants to quit
             // asking for pattern number
             displayMenu();
-            choice = kb.nextInt();
-            while (!(choice >=1 && choice <=5)){ // keep asking until a valid pattern number is entered or the user wants to quit
-                System.out.println("You have entered an invalid pattern number. Please make sure that your pattern number is between 1 and 4 (inclusive), or enter 5 to quit. Please enter your choice again: ");
-                choice = kb.nextInt();
+            while (true){
+                try{
+                    choice = kb.nextInt();
+                    while (!(choice >=1 && choice <=5)){ // keep asking until a valid pattern number is entered or the user wants to quit
+                        System.out.println("You have entered an invalid pattern number. Please make sure that your pattern number is between 1 and 4 (inclusive), or enter 5 to quit. Please enter your choice again: ");
+                        choice = kb.nextInt();
+                    }
+                    break;
+                }catch (Exception e){ // invalid user input
+                    kb.nextLine();
+                    System.out.println("You have entered an invalid input. Please make sure that your pattern number is an integer between 1 and 4 (inclusive), or enter 5 to quit. Please enter your choice again: ");
+                }
             }
 
             // if user's choice is 5, display closing message and quit
@@ -27,10 +36,18 @@ public class PatternPrinter {
 
             // asking for row number
             System.out.println("How many rows would you like to print? Enter a number between 1 and 10 (inclusive): ");
-            int row = kb.nextInt();
-            while (!(row >=1 && row<=9)){ // keep asking until a valid row number is entered
-                System.out.println("You have entered an invalid number of rows. Please make sure that your row number is between 1 and 9 (inclusive). Please enter a row number again: ");
-                row = kb.nextInt();
+            while(true){
+                try{
+                    row = kb.nextInt();
+                    while (!(row >=1 && row<=9)){ // keep asking until a valid row number is entered
+                        System.out.println("You have entered an invalid number of rows. Please make sure that your row number is between 1 and 9 (inclusive). Please enter a row number again: ");
+                        row = kb.nextInt();
+                    }
+                    break;
+                }catch (Exception e){
+                    kb.nextLine();
+                    System.out.println("You have entered an invalid input. Please make sure that your row number is an integer between 1 and 9 (inclusive). Please enter a row number again: ");
+                }
             }
 
             // printing the pattern

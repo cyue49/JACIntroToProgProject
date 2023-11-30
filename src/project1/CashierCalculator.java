@@ -11,8 +11,12 @@ public class CashierCalculator {
         int itemNum = 0; // number of items bought
         while (!(itemNum >=1 && itemNum<=10)){
             invalidInputs++; // add one invalid input count for each loop
-            System.out.printf("Please enter the number of items bought [%d...%d]: ", 1, 10);
-            itemNum = kb.nextInt();
+            try{
+                System.out.printf("Please enter the number of items bought [%d...%d]: ", 1, 10);
+                itemNum = kb.nextInt();
+            }catch (Exception e){
+                kb.nextLine();
+            }
         }
         invalidInputs--; // remove count for the correct input
 
@@ -22,8 +26,12 @@ public class CashierCalculator {
             double itmPrice = 0; // price of current item
             while (!(itmPrice>=1 && itmPrice<=1000)){
                 invalidInputs ++;
-                System.out.printf("Please enter the price of item %d [%d...%d]: ", i+1, 1, 1000);
-                itmPrice = kb.nextDouble();
+                try{
+                    System.out.printf("Please enter the price of item %d [%d...%d]: ", i+1, 1, 1000);
+                    itmPrice = kb.nextDouble();
+                }catch (Exception e){
+                    kb.nextLine();
+                }
             }
             invalidInputs --;
             itemPrices[i] = itmPrice;
@@ -33,8 +41,12 @@ public class CashierCalculator {
         double gstRate = -1;
         while (!(gstRate>=0 && gstRate<=14)){
             invalidInputs++;
-            System.out.printf("Please enter the tax rate of GST in %% [%d...%d]", 0, 14);
-            gstRate = kb.nextDouble();
+            try{
+                System.out.printf("Please enter the tax rate of GST in %% [%d...%d]", 0, 14);
+                gstRate = kb.nextDouble();
+            }catch (Exception e){
+                kb.nextLine();
+            }
         }
         invalidInputs--;
         gstRate /= 100; // get percentage of gstRate
@@ -43,8 +55,12 @@ public class CashierCalculator {
         double qstRate = -1;
         while (!(qstRate>=0 && qstRate<=17)){
             invalidInputs++;
-            System.out.printf("Please enter the tax rate of QST in %% [%d...%d]", 0, 17);
-            qstRate = kb.nextDouble();
+            try{
+                System.out.printf("Please enter the tax rate of QST in %% [%d...%d]", 0, 17);
+                qstRate = kb.nextDouble();
+            }catch (Exception e){
+                kb.nextLine();
+            }
         }
         invalidInputs--;
         qstRate /= 100; // get percentage of qstRate
